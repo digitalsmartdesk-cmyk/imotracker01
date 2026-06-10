@@ -40,10 +40,10 @@ export default async function DashboardPage() {
   const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening'
 
   return (
-    <div style={{ padding: '32px', background: 'var(--cream)', minHeight: '100vh' }}>
+    <div style={{ background: 'var(--cream)', minHeight: '100vh' }}>
 
       {/* Top Bar */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 32 }}>
+      <div className="dash-topbar" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 32 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           {['Maya', 'Leo'].map((child, i) => (
             <button key={child} style={{
@@ -58,7 +58,7 @@ export default async function DashboardPage() {
             </button>
           ))}
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+        <div className="dash-topbar-right" style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
           <button style={{
             width: 38, height: 38, borderRadius: '50%', border: '1px solid var(--line)',
             background: 'var(--paper)', display: 'flex', alignItems: 'center', justifyContent: 'center',

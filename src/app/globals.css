@@ -178,3 +178,34 @@ label { font-size: 13.5px; font-weight: 600; color: var(--navy); display: block;
   .rg-4up   { grid-template-columns: 1fr; }
   .rg-stats { grid-template-columns: 1fr; }
 }
+
+/* ── App shell ──────────────────────────────────────────────────────────── */
+.app-shell { display: flex; min-height: 100vh; }
+.app-main  { flex: 1; overflow: auto; padding: 32px; }
+
+/* Mobile bottom nav */
+.sidebar-bottom-nav { display: none; }
+
+@media (max-width: 820px) {
+  .app-sidebar { display: none !important; }
+  .app-main    { padding: 20px 16px 80px; } /* bottom padding for nav bar */
+  .sidebar-bottom-nav {
+    display: flex;
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+    background: var(--navy);
+    border-top: 1px solid rgba(245,243,239,0.1);
+    padding: 8px 0 max(8px, env(safe-area-inset-bottom));
+  }
+  .sidebar-bottom-nav a {
+    flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;
+    color: rgba(245,243,239,0.5); text-decoration: none;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.03em;
+    padding: 4px 2px;
+    transition: color .15s;
+  }
+  .sidebar-bottom-nav a.active { color: var(--coral); }
+  .sidebar-bottom-nav a span.nav-icon { font-size: 20px; line-height: 1; }
+  /* Dashboard top bar wraps on mobile */
+  .dash-topbar { flex-wrap: wrap; gap: 10px !important; }
+  .dash-topbar-right { flex-wrap: wrap; gap: 8px !important; }
+}

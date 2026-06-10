@@ -25,7 +25,8 @@ export default function Sidebar() {
   }
 
   return (
-    <aside style={{
+    <>
+    <aside className="app-sidebar" style={{
       background: 'var(--navy)', color: 'var(--cream)',
       padding: '26px 18px',
       display: 'flex', flexDirection: 'column',
@@ -69,5 +70,25 @@ export default function Sidebar() {
         </button>
       </div>
     </aside>
+
+    {/* Mobile bottom nav */}
+    <nav className="sidebar-bottom-nav">
+      {[
+        { href: '/dashboard', label: 'Home', icon: '⊞' },
+        { href: '/tests', label: 'Tests', icon: '✦' },
+        { href: '/reports', label: 'Reports', icon: '📋' },
+        { href: '/progress', label: 'Progress', icon: '📈' },
+        { href: '/settings', label: 'Account', icon: '⚙' },
+      ].map(item => {
+        const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
+        return (
+          <Link key={item.href} href={item.href} className={isActive ? 'active' : ''}>
+            <span className="nav-icon">{item.icon}</span>
+            {item.label}
+          </Link>
+        )
+      })}
+    </nav>
+    </>
   )
 }
