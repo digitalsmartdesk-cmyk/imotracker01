@@ -32,6 +32,8 @@ function LoginPageInner() {
   useEffect(() => {
     const t = searchParams.get('tab')
     if (t === 'signup') setTab('signup')
+    const msg = searchParams.get('msg')
+    if (msg === 'check-email') setError('✉️ Check your email and click the confirmation link to activate your account.')
   }, [searchParams])
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -67,10 +69,14 @@ function LoginPageInner() {
     setLoading(true)
     const supabase = createClient()
 
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || window.location.origin
     const { data, error: signUpError } = await supabase.auth.signUp({
       email: signupEmail,
       password: signupPassword,
-      options: { data: { name: signupName } },
+      options: {
+        data: { name: signupName },
+        emailRedirectTo: `${siteUrl}/onboarding`,
+      },
     })
 
     if (signUpError) {
@@ -104,6 +110,14 @@ function LoginPageInner() {
 
       // Seed credits
       await supabase.from('credits').insert({ parent_id: userId, balance: 0 })
+    }
+
+    // If email confirmation is required, show check-email message
+    if (data.user && !data.session) {
+      setError('')
+      router.push('/login?msg=check-email')
+      setLoading(false)
+      return
     }
 
     router.push('/onboarding')
