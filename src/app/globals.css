@@ -44,7 +44,7 @@ button { font-family: inherit; cursor: pointer; }
   cursor: pointer;
 }
 .btn-primary { background: var(--navy); color: var(--cream); }
-.btn-primary:hover { background: var(--navy-ink); }
+.btn-primary:hover { background: var(--navy-ink); transform: translateY(-1px); }
 .btn-ghost { background: transparent; color: var(--navy); border-color: var(--line); }
 .btn-ghost:hover { background: var(--cream-deep); }
 .btn-coral { background: var(--coral); color: var(--navy-ink); }
@@ -101,6 +101,23 @@ label { font-size: 13.5px; font-weight: 600; color: var(--navy); display: block;
 
 .progress-bar { height: 6px; background: var(--line); border-radius: 999px; overflow: hidden; }
 .progress-fill { height: 100%; background: var(--teal); border-radius: 999px; transition: width .4s ease; }
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pop {
+  0% { transform: scale(0.7); opacity: 0; }
+  70% { transform: scale(1.08); }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fade-up .3s ease both; }
+.animate-pop { animation: pop .4s cubic-bezier(.4,0,.2,1) both; }
+.animate-rise { animation: rise .4s ease both; }
 
 @media (max-width: 768px) {
   .container { padding: 0 20px; }

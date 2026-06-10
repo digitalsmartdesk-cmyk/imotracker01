@@ -17,6 +17,8 @@ function LoginPageInner() {
   // Login form
   const [loginEmail, setLoginEmail] = useState('')
   const [loginPassword, setLoginPassword] = useState('')
+  const [showLoginPw, setShowLoginPw] = useState(false)
+  const [showSignupPw, setShowSignupPw] = useState(false)
 
   // Signup form
   const [signupName, setSignupName] = useState('')
@@ -256,6 +258,10 @@ function LoginPageInner() {
           {/* LOGIN FORM */}
           {tab === 'login' && (
             <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+              <div style={{ marginBottom: 4 }}>
+                <h1 style={{ fontSize: 24, fontWeight: 800, color: 'var(--navy)', margin: '0 0 4px', letterSpacing: '-0.02em' }}>Welcome back.</h1>
+                <p style={{ fontSize: 14, color: 'rgba(30,58,95,0.55)', margin: 0 }}>Log in to see your children's reports.</p>
+              </div>
               <div>
                 <label htmlFor="login-email">Email address</label>
                 <input
@@ -276,16 +282,24 @@ function LoginPageInner() {
                     Forgot password?
                   </a>
                 </div>
-                <input
-                  id="login-password"
-                  className="input"
-                  type="password"
-                  placeholder="••••••••"
-                  value={loginPassword}
-                  onChange={e => setLoginPassword(e.target.value)}
-                  required
-                  autoComplete="current-password"
-                />
+                <div style={{ position: 'relative' }}>
+                  <input
+                    id="login-password"
+                    className="input"
+                    type={showLoginPw ? 'text' : 'password'}
+                    placeholder="••••••••"
+                    value={loginPassword}
+                    onChange={e => setLoginPassword(e.target.value)}
+                    required
+                    autoComplete="current-password"
+                    style={{ paddingRight: 56 }}
+                  />
+                  <button type="button" onClick={() => setShowLoginPw(v => !v)} style={{
+                    position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)',
+                    background: 'none', border: 'none', cursor: 'pointer',
+                    fontSize: 12, fontWeight: 600, color: 'var(--teal)',
+                  }}>{showLoginPw ? 'Hide' : 'Show'}</button>
+                </div>
               </div>
               <button
                 type="submit"
@@ -341,17 +355,25 @@ function LoginPageInner() {
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
                     <div>
                       <label htmlFor="su-pass">Password</label>
-                      <input
-                        id="su-pass"
-                        className="input"
-                        type="password"
-                        placeholder="••••••••"
-                        value={signupPassword}
-                        onChange={e => setSignupPassword(e.target.value)}
-                        required
-                        autoComplete="new-password"
-                        minLength={8}
-                      />
+                      <div style={{ position: 'relative' }}>
+                        <input
+                          id="su-pass"
+                          className="input"
+                          type={showSignupPw ? 'text' : 'password'}
+                          placeholder="••••••••"
+                          value={signupPassword}
+                          onChange={e => setSignupPassword(e.target.value)}
+                          required
+                          autoComplete="new-password"
+                          minLength={8}
+                          style={{ paddingRight: 56 }}
+                        />
+                        <button type="button" onClick={() => setShowSignupPw(v => !v)} style={{
+                          position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)',
+                          background: 'none', border: 'none', cursor: 'pointer',
+                          fontSize: 12, fontWeight: 600, color: 'var(--teal)',
+                        }}>{showSignupPw ? 'Hide' : 'Show'}</button>
+                      </div>
                     </div>
                     <div>
                       <label htmlFor="su-confirm">Confirm</label>

@@ -46,16 +46,28 @@ export default function CheckoutPage() {
 
   if (done) {
     return (
-      <div style={{ minHeight: '100vh', background: 'var(--cream)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 40 }}>
-        <div style={{ maxWidth: 440, textAlign: 'center' }}>
-          <div style={{ width: 72, height: 72, borderRadius: '50%', background: 'rgba(44,95,93,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 32, margin: '0 auto 20px' }}>✓</div>
-          <h1 style={{ fontSize: 28, fontWeight: 800, color: 'var(--navy)', marginBottom: 12 }}>Payment submitted!</h1>
+      <div style={{
+        position: 'fixed', inset: 0, zIndex: 100,
+        background: 'var(--cream)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        padding: 40,
+      }}>
+        <div className="animate-rise" style={{ maxWidth: 440, textAlign: 'center' }}>
+          <div className="animate-pop" style={{
+            width: 80, height: 80, borderRadius: '50%',
+            background: 'var(--teal)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            fontSize: 36, color: 'white',
+            margin: '0 auto 24px',
+            boxShadow: '0 0 0 16px rgba(44,95,93,0.1)',
+          }}>✓</div>
+          <h1 style={{ fontSize: 30, fontWeight: 800, color: 'var(--navy)', marginBottom: 12 }}>Payment received!</h1>
           <p style={{ fontSize: 15, color: 'var(--navy-ink)', opacity: 0.7, lineHeight: 1.65, marginBottom: 32 }}>
-            We've received your UPI reference (<strong>{upiRef}</strong>). Your {selected.credits} credit{selected.credits > 1 ? 's' : ''} will be added within a few minutes after verification.
+            We've received your UPI reference <span className="mono" style={{ background: 'var(--cream-deep)', padding: '1px 6px', borderRadius: 4 }}>{upiRef}</span>. Your {selected.credits} credit{selected.credits > 1 ? 's' : ''} will be added within a few minutes after verification.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            <Link href="/tests" className="btn btn-primary btn-lg" style={{ display: 'block', textAlign: 'center' }}>Browse assessments →</Link>
-            <Link href="/dashboard" className="btn btn-ghost btn-lg" style={{ display: 'block', textAlign: 'center' }}>Go to dashboard</Link>
+            <Link href="/dashboard" className="btn btn-primary btn-lg" style={{ display: 'block', textAlign: 'center' }}>Go to dashboard →</Link>
+            <Link href="/tests" className="btn btn-ghost btn-lg" style={{ display: 'block', textAlign: 'center' }}>Browse assessments</Link>
           </div>
         </div>
       </div>
@@ -71,7 +83,8 @@ export default function CheckoutPage() {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 360px', gap: 32, alignItems: 'start' }}>
           {/* Left */}
           <div>
-            <h1 style={{ fontSize: 28, fontWeight: 800, color: 'var(--navy)', marginBottom: 28, letterSpacing: '-0.02em' }}>Choose your plan</h1>
+            <h1 style={{ fontSize: 28, fontWeight: 800, color: 'var(--navy)', marginBottom: 4, letterSpacing: '-0.02em' }}>Complete your <span className="serif">purchase</span></h1>
+        <p style={{ fontSize: 14, color: 'var(--navy-ink)', opacity: 0.55, marginBottom: 28 }}>Secure checkout · 256-bit SSL</p>
 
             {/* Plan picker */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginBottom: 36 }}>
@@ -97,7 +110,7 @@ export default function CheckoutPage() {
                       <span style={{ fontSize: 14, color: 'var(--navy-ink)', opacity: 0.6 }}>{pl.credits} assessment credit{pl.credits > 1 ? 's' : ''} · use on any topic · never expire</span>
                     </div>
                     <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                      <div style={{ fontSize: 22, fontWeight: 800, color: 'var(--navy)' }}>₹{pl.price}</div>
+                      <div className="serif" style={{ fontSize: 26, color: 'var(--navy)' }}>₹{pl.price}</div>
                       <div style={{ fontSize: 12, color: 'var(--navy-ink)', opacity: 0.5 }}>+ GST</div>
                     </div>
                   </label>
@@ -117,7 +130,7 @@ export default function CheckoutPage() {
                   </div>
                 </div>
                 <div>
-                  <div style={{ fontSize: 24, fontWeight: 800, color: 'var(--navy)', marginBottom: 4 }}>₹{total}</div>
+                  <div className="serif" style={{ fontSize: 32, color: 'var(--teal)', marginBottom: 4 }}>₹{total}</div>
                   <div style={{ fontSize: 13, color: 'var(--navy-ink)', opacity: 0.6, marginBottom: 16 }}>Payable to Vikas Gupta · ImoTracker</div>
                   <ol style={{ paddingLeft: 20, margin: 0 }}>
                     {['Open GPay, PhonePe, Paytm, or BHIM', 'Scan the QR code above', `Enter ₹${total} if not auto-filled`, 'Complete payment & note the UTR/reference ID'].map((step, i) => (
@@ -134,7 +147,7 @@ export default function CheckoutPage() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                 <div>
                   <label>UPI Reference / UTR number *</label>
-                  <input className="input" placeholder="e.g. 411234567890" value={upiRef} onChange={e => setUpiRef(e.target.value)} />
+                  <input className="input mono" placeholder="e.g. 411234567890" maxLength={22} value={upiRef} onChange={e => setUpiRef(e.target.value)} />
                   <p style={{ fontSize: 12, color: 'var(--navy-ink)', opacity: 0.5, marginTop: 6 }}>Found in your UPI app's payment confirmation</p>
                 </div>
                 <div>
@@ -147,39 +160,40 @@ export default function CheckoutPage() {
 
           {/* Right: Order summary */}
           <div style={{ position: 'sticky', top: 24 }}>
-            <div className="card" style={{ padding: 28 }}>
-              <h2 style={{ fontSize: 16, fontWeight: 700, color: 'var(--navy)', marginBottom: 20 }}>Order summary</h2>
+            <div style={{ borderRadius: 20, padding: 28, background: 'var(--navy)', color: 'var(--cream)' }}>
+              <h2 style={{ fontSize: 16, fontWeight: 700, color: 'rgba(245,243,239,0.6)', marginBottom: 20, letterSpacing: '0.1em', textTransform: 'uppercase', fontSize: 11 }}>Order summary</h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 16 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14, color: 'var(--navy-ink)' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14, color: 'rgba(245,243,239,0.85)' }}>
                   <span>{selected.label}</span>
                   <span>₹{selected.price}</span>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14, color: 'var(--navy-ink)', opacity: 0.6 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14, color: 'rgba(245,243,239,0.5)' }}>
                   <span>GST (18%)</span>
                   <span>₹{tax}</span>
                 </div>
-                <div style={{ borderTop: '1px solid var(--line)', paddingTop: 12, display: 'flex', justifyContent: 'space-between', fontWeight: 800, color: 'var(--navy)', fontSize: 16 }}>
-                  <span>Total due</span>
-                  <span>₹{total}</span>
+                <div style={{ borderTop: '1px solid rgba(245,243,239,0.15)', paddingTop: 12, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontWeight: 700, color: 'rgba(245,243,239,0.8)', fontSize: 14 }}>Total due</span>
+                  <span className="serif" style={{ fontSize: 38, color: 'var(--coral)' }}>₹{total}</span>
                 </div>
               </div>
-              <div style={{ background: 'rgba(44,95,93,0.06)', borderRadius: 10, padding: '12px 14px', marginBottom: 20, fontSize: 13, color: 'var(--teal)', fontWeight: 600 }}>
-                {selected.credits} credit{selected.credits > 1 ? 's' : ''} will be added to your account after payment is verified.
+              <div style={{ background: 'rgba(232,165,152,0.15)', borderRadius: 10, padding: '12px 14px', marginBottom: 20 }}>
+                <span className="serif" style={{ fontSize: 30, color: 'var(--coral)', display: 'block', lineHeight: 1 }}>{selected.credits}</span>
+                <span style={{ fontSize: 13, color: 'rgba(245,243,239,0.7)' }}>credit{selected.credits > 1 ? 's' : ''} added after verification</span>
               </div>
               <button
-                className="btn btn-primary btn-lg"
-                style={{ width: '100%' }}
+                className="btn btn-coral btn-lg"
+                style={{ width: '100%', justifyContent: 'center' }}
                 onClick={handleConfirm}
                 disabled={!upiRef || loading}
               >
                 {loading ? 'Confirming…' : "I've completed payment ✓"}
               </button>
               <div style={{ display: 'flex', gap: 8, alignItems: 'center', justifyContent: 'center', marginTop: 16 }}>
-                <span style={{ fontSize: 12, color: 'var(--navy-ink)', opacity: 0.5 }}>🛡 30-day money-back guarantee</span>
+                <span style={{ fontSize: 12, color: 'rgba(245,243,239,0.4)' }}>🛡 30-day money-back guarantee</span>
               </div>
               <div style={{ display: 'flex', gap: 8, justifyContent: 'center', marginTop: 14 }}>
-                {['UPI', 'BHIM', 'GPay', 'PhonePe'].map(b => (
-                  <span key={b} style={{ fontSize: 11, background: 'var(--cream-deep)', padding: '3px 8px', borderRadius: 6, color: 'var(--navy)', fontWeight: 600 }}>{b}</span>
+                {['UPI', 'BHIM', 'Razorpay'].map(b => (
+                  <span key={b} style={{ fontSize: 11, background: 'rgba(245,243,239,0.1)', padding: '3px 8px', borderRadius: 6, color: 'rgba(245,243,239,0.6)', fontWeight: 600 }}>{b}</span>
                 ))}
               </div>
             </div>

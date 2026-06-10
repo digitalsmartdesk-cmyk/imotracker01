@@ -94,7 +94,7 @@ export default async function DashboardPage() {
             <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(30,58,95,0.45)', marginBottom: 8 }}>
               {stat.label}
             </div>
-            <div style={{ fontSize: 22, fontWeight: 800, color: stat.highlight ? 'var(--teal)' : 'var(--navy)', letterSpacing: '-0.02em', marginBottom: 3 }}>
+            <div className="serif" style={{ fontSize: 32, color: stat.highlight ? 'var(--teal)' : 'var(--navy)', marginBottom: 3, lineHeight: 1 }}>
               {stat.value}
             </div>
             <div style={{ fontSize: 12.5, color: 'rgba(30,58,95,0.5)' }}>{stat.sub}</div>

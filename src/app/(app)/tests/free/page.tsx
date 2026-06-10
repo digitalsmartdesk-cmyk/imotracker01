@@ -197,7 +197,7 @@ export default function FreeTestPage() {
           <div className="progress-bar"><div className="progress-fill" style={{ width: `${((currentQ + 1) / FREE_QUESTIONS.length) * 100}%` }} /></div>
           <div style={{ display: 'flex', gap: 4, marginTop: 6 }}>
             {FREE_QUESTIONS.map((_, i) => (
-              <div key={i} style={{ flex: 1, height: 4, borderRadius: 2, background: i <= currentQ ? 'var(--teal)' : 'var(--line)' }} />
+              <div key={i} style={{ flex: 1, height: 4, borderRadius: 2, background: i < currentQ ? 'var(--teal)' : i === currentQ ? 'var(--coral)' : 'var(--line)', transition: 'background .3s' }} />
             ))}
           </div>
         </div>
@@ -205,24 +205,36 @@ export default function FreeTestPage() {
 
       {/* Question */}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '48px 24px', maxWidth: 640, margin: '0 auto', width: '100%' }}>
-        <h2 style={{ fontSize: 24, fontWeight: 700, color: 'var(--navy)', textAlign: 'center', lineHeight: 1.4, marginBottom: 40 }}>
+        <h2 style={{ fontSize: 'clamp(22px, 3.6vw, 34px)', fontWeight: 700, color: 'var(--navy)', textAlign: 'center', lineHeight: 1.4, marginBottom: 8 }}>
           {question.text}
         </h2>
+        <p style={{ fontSize: 14, color: 'var(--navy-ink)', opacity: 0.5, textAlign: 'center', marginBottom: 36 }}>
+          {question.type === 'emoji-scale' ? 'Tap the face that shows how you feel.' :
+           question.type === 'multi-select' ? 'Choose all that apply.' :
+           question.type === 'single-choice' ? 'Choose one answer.' : ' '}
+        </p>
 
         {/* Emoji scale */}
         {question.type === 'emoji-scale' && (
           <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center' }}>
-            {EMOJI_OPTIONS.map(opt => (
-              <button key={opt.value} onClick={() => handleAnswer(String(opt.value))} style={{
-                display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8,
-                padding: '18px 20px', borderRadius: 16, border: `2px solid ${selected === String(opt.value) ? 'var(--teal)' : 'var(--line)'}`,
-                background: selected === String(opt.value) ? 'rgba(44,95,93,0.08)' : 'var(--paper)',
-                cursor: 'pointer', transition: 'all .15s', minWidth: 88,
-              }}>
-                <span style={{ fontSize: 36 }}>{opt.emoji}</span>
-                <span style={{ fontSize: 12, fontWeight: 600, color: 'var(--navy)' }}>{opt.label}</span>
-              </button>
-            ))}
+            {EMOJI_OPTIONS.map(opt => {
+              const isSel = selected === String(opt.value)
+              return (
+                <button key={opt.value} onClick={() => handleAnswer(String(opt.value))} style={{
+                  display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8,
+                  padding: '18px 20px', borderRadius: 22,
+                  border: `2px solid ${isSel ? 'var(--coral)' : 'var(--line)'}`,
+                  background: isSel ? 'var(--coral-soft)' : 'var(--paper)',
+                  cursor: 'pointer', minWidth: 88,
+                  transform: isSel ? 'scale(1.08)' : 'scale(1)',
+                  boxShadow: isSel ? '0 4px 16px rgba(232,165,152,0.4)' : 'none',
+                  transition: 'all .18s cubic-bezier(.4,0,.2,1)',
+                }}>
+                  <span style={{ fontSize: 36 }}>{opt.emoji}</span>
+                  <span style={{ fontSize: 12, fontWeight: 600, color: 'var(--navy)' }}>{opt.label}</span>
+                </button>
+              )
+            })}
           </div>
         )}
 
