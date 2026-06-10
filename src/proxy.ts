@@ -23,20 +23,35 @@ export async function proxy(request: NextRequest) {
 
   const { data: { user } } = await supabase.auth.getUser()
 
+  const path = request.nextUrl.pathname
   const protectedPaths = ['/dashboard', '/tests', '/reports', '/progress', '/checkout', '/settings', '/onboarding']
-  const isProtected = protectedPaths.some(p => request.nextUrl.pathname.startsWith(p))
+  const indiaProtectedPaths = ['/india/dashboard', '/india/reports', '/india/checkout']
+  const isIndiaProtected = indiaProtectedPaths.some(p => path.startsWith(p))
+  const isProtected = !path.startsWith('/india') && protectedPaths.some(p => path.startsWith(p))
+
+  if (!user && isIndiaProtected) {
+    const url = request.nextUrl.clone()
+    url.pathname = '/india/login'
+    url.searchParams.set('next', path)
+    return NextResponse.redirect(url)
+  }
 
   if (!user && isProtected) {
     const url = request.nextUrl.clone()
     url.pathname = '/login'
-    url.searchParams.set('next', request.nextUrl.pathname)
+    url.searchParams.set('next', path)
     return NextResponse.redirect(url)
   }
 
-  // Redirect logged-in users away from login page
-  if (user && request.nextUrl.pathname === '/login') {
+  // Redirect logged-in users away from login pages
+  if (user && path === '/login') {
     const url = request.nextUrl.clone()
     url.pathname = '/dashboard'
+    return NextResponse.redirect(url)
+  }
+  if (user && path === '/india/login') {
+    const url = request.nextUrl.clone()
+    url.pathname = '/india/dashboard'
     return NextResponse.redirect(url)
   }
 

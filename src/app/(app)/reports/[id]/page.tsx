@@ -119,7 +119,7 @@ export default function ReportPage({ params }: { params: { id: string } }) {
       {view === 'parent' && (
         <>
           {/* Report header */}
-          <div style={{ background: 'var(--navy)', margin: '0 32px 24px', borderRadius: 20, padding: '36px 40px', color: 'var(--cream)', <div className="rg-report-hdr"> }}>
+          <div className="rg-report-hdr" style={{ background: 'var(--navy)', margin: '0 32px 24px', borderRadius: 20, padding: '36px 40px', color: 'var(--cream)' }}>
             <div>
               <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(245,243,239,0.5)', marginBottom: 10 }}>Parent Report</div>
               <h1 style={{ fontSize: 26, fontWeight: 800, marginBottom: 8, letterSpacing: '-0.01em' }}>Emotional Awareness</h1>

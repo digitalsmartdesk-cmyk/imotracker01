@@ -161,7 +161,7 @@ export default function CheckoutPage() {
           {/* Right: Order summary */}
           <div style={{ position: 'sticky', top: 24 }}>
             <div style={{ borderRadius: 20, padding: 28, background: 'var(--navy)', color: 'var(--cream)' }}>
-              <h2 style={{ fontSize: 16, fontWeight: 700, color: 'rgba(245,243,239,0.6)', marginBottom: 20, letterSpacing: '0.1em', textTransform: 'uppercase', fontSize: 11 }}>Order summary</h2>
+              <h2 style={{ fontSize: 11, fontWeight: 700, color: 'rgba(245,243,239,0.6)', marginBottom: 20, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Order summary</h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 16 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14, color: 'rgba(245,243,239,0.85)' }}>
                   <span>{selected.label}</span>

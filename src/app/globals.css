@@ -14,6 +14,10 @@
   --paper: #FBFAF6;
   --line: rgba(30, 58, 95, 0.12);
   --line-soft: rgba(30, 58, 95, 0.06);
+  /* India-only accent tokens */
+  --saffron: #D4763B;
+  --saffron-soft: #f0c9a8;
+  --amber: #D4933A;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -54,6 +58,16 @@ button { font-family: inherit; cursor: pointer; }
 .btn-lg { padding: 15px 28px; font-size: 15.5px; }
 .btn-danger { background: #c0392b; color: white; }
 .btn-danger:hover { background: #a93226; }
+.btn-saffron { background: var(--saffron); color: var(--cream); }
+.btn-saffron:hover { background: #bd6531; transform: translateY(-1px); }
+
+/* India brand badge */
+.india-badge-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--cream-deep); border: 1px solid var(--line);
+  border-radius: 999px; padding: 3px 10px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.04em; color: var(--navy);
+}
 
 .input {
   width: 100%; padding: 11px 14px; border-radius: 10px;
