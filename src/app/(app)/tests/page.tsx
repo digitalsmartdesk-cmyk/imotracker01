@@ -94,7 +94,7 @@ export default function TestsPage() {
 
       {/* Premium grid */}
       <h3 style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--navy)', opacity: 0.45, marginBottom: 16 }}>Premium topics · 1 credit each</h3>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 48 }}>
+      <div className="rg-3up" style={{ marginBottom: 48 }}>
         {premiumTests.map(t => (
           <div key={t.id} className="card" style={{ padding: 22, display: 'flex', flexDirection: 'column', gap: 10 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>

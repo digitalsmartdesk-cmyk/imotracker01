@@ -80,7 +80,7 @@ export default function CheckoutPage() {
         <div style={{ marginBottom: 32, fontSize: 13, color: 'var(--navy)', opacity: 0.5 }}>
           <Link href="/tests">Assessments</Link> <span style={{ margin: '0 6px' }}>›</span> Checkout
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 360px', gap: 32, alignItems: 'start' }}>
+        <div className="rg-checkout">
           {/* Left */}
           <div>
             <h1 style={{ fontSize: 28, fontWeight: 800, color: 'var(--navy)', marginBottom: 4, letterSpacing: '-0.02em' }}>Complete your <span className="serif">purchase</span></h1>

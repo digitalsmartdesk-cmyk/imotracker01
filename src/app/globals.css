@@ -123,3 +123,58 @@ label { font-size: 13.5px; font-weight: 600; color: var(--navy); display: block;
   .container { padding: 0 20px; }
   .section-title { font-size: 26px; }
 }
+
+
+/* ── Responsive grid utilities ─────────────────────────────────────────── */
+.rg-hero     { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: center; }
+.rg-steps    { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.rg-4up      { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.rg-2col     { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.rg-insights { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.rg-3up      { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.rg-pricing  { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 900px; margin: 0 auto; }
+.rg-stats    { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
+.rg-dash2    { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 28px; }
+.rg-children { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+
+.rg-checkout   { display: grid; grid-template-columns: 1fr 360px; gap: 32px; align-items: start; }
+.rg-report-hdr { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; }
+.rg-2col-sm    { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.rg-3up-sm     { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.rg-about-approach { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 860px; margin: 0 auto; }
+.login-layout { display: flex; min-height: 100vh; }
+.login-left   { width: 45%; flex-shrink: 0; background: var(--navy); padding: 48px 52px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+.login-right  { flex: 1; background: var(--cream); display: flex; align-items: center; justify-content: center; padding: 48px 40px; overflow-y: auto; }
+
+.nextup-inner { display: flex; align-items: center; justify-content: space-between; }
+.nextup-btn   { margin-left: 24px; flex-shrink: 0; white-space: nowrap; }
+
+@media (max-width: 860px) {
+  html { overflow-x: hidden; }
+  .rg-hero     { grid-template-columns: 1fr; gap: 0; }
+  .rg-hero-visual { display: none; }
+  .rg-steps    { grid-template-columns: 1fr; gap: 8px; }
+  .rg-4up      { grid-template-columns: repeat(2, 1fr); }
+  .rg-2col     { grid-template-columns: 1fr; }
+  .rg-insights { grid-template-columns: 1fr; gap: 40px; }
+  .rg-3up      { grid-template-columns: 1fr; }
+  .rg-pricing  { grid-template-columns: 1fr; }
+  .rg-stats    { grid-template-columns: repeat(2, 1fr); }
+  .rg-dash2    { grid-template-columns: 1fr; }
+  .rg-children { grid-template-columns: 1fr; }
+  .rg-checkout   { grid-template-columns: 1fr; }
+  .rg-report-hdr { grid-template-columns: 1fr; gap: 16px; }
+  .rg-2col-sm    { grid-template-columns: 1fr; }
+  .rg-3up-sm     { grid-template-columns: 1fr; }
+  .rg-about-approach { grid-template-columns: 1fr; }
+  .login-left  { display: none; }
+  .login-right { width: 100%; padding: 32px 24px; }
+  .nextup-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .nextup-btn   { margin-left: 0; }
+}
+
+@media (max-width: 480px) {
+  .rg-4up   { grid-template-columns: 1fr; }
+  .rg-stats { grid-template-columns: 1fr; }
+}

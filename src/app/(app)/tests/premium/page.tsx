@@ -147,7 +147,7 @@ function PremiumTestInner() {
           <h1 style={{ fontSize: 32, fontWeight: 800, color: 'var(--navy)', marginBottom: 6, letterSpacing: '-0.02em' }}>{topic?.name}</h1>
           <p style={{ fontSize: 14, color: 'var(--navy-ink)', opacity: 0.6, marginBottom: 32 }}>Ages {topic?.ageMin}+ · {topic?.questionCount} questions · ~{topic?.estimatedMinutes} minutes</p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 28 }}>
+          <div className="rg-2col-sm" style={{ marginBottom: 28 }}>
             {[
               ['💬', 'No right or wrong answers', 'Every answer is the right one'],
               ['⏱', 'Take your time', 'There\'s no rush at all'],

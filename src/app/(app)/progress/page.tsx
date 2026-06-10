@@ -120,7 +120,7 @@ export default function ProgressPage() {
       </div>
 
       {/* Stats */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, marginBottom: 32 }}>
+      <div className="rg-stats">
         {STATS.map(s => (
           <div key={s.label} className="card" style={{ padding: '18px 20px' }}>
             <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--navy)', opacity: 0.4, marginBottom: 8 }}>{s.label}</div>
@@ -157,7 +157,7 @@ export default function ProgressPage() {
       </div>
 
       {/* Domain cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, marginBottom: 32 }}>
+      <div className="rg-2col" style={{ marginBottom: 32 }}>
         {DOMAINS.map(d => {
           const latest = d.values[d.values.length - 1]
           const first = d.values[0]

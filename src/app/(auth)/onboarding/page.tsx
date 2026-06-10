@@ -183,7 +183,7 @@ export default function OnboardingPage() {
                 <label>Child's first name</label>
                 <input className="input" value={childName} onChange={e => setChildName(e.target.value)} placeholder="e.g. Maya" />
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+              <div className="rg-2col-sm">
                 <div>
                   <label>Date of birth</label>
                   <input className="input" type="date" value={dob} onChange={e => setDob(e.target.value)} />

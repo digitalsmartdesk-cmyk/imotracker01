@@ -114,7 +114,7 @@ export default function HomePage() {
       {/* HERO */}
       <section style={{ padding: '96px 0 80px', overflow: 'hidden' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
+          <div className="rg-hero">
             <div>
               <div style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8,
@@ -156,7 +156,7 @@ export default function HomePage() {
             </div>
 
             {/* Report Card Visual */}
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <div className="rg-hero-visual" style={{ display: 'flex', justifyContent: 'center' }}>
               <div style={{
                 background: 'var(--navy)',
                 borderRadius: 24,
@@ -234,7 +234,7 @@ export default function HomePage() {
             <h2 className="section-title">Three steps to deeper understanding</h2>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 40 }}>
+          <div className="rg-steps">
             {[
               {
                 num: '1',
@@ -285,7 +285,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20 }}>
+          <div className="rg-4up">
             {assessments.map((a) => (
               <Link key={a.name} href={a.href} style={{ textDecoration: 'none' }}>
                 <div className="card" style={{
@@ -331,7 +331,7 @@ export default function HomePage() {
       {/* INSIGHTS */}
       <section style={{ background: 'var(--navy)', padding: '100px 0' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
+          <div className="rg-insights">
             <div>
               <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--coral)', marginBottom: 16 }}>
                 Insights
@@ -380,7 +380,7 @@ export default function HomePage() {
             <h2 className="section-title">Families who've made it part of their year</h2>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+          <div className="rg-3up">
             {reviews.map(({ name, role, rating, quote }) => (
               <div key={name} className="card" style={{ padding: 32 }}>
                 <div style={{ display: 'flex', gap: 2, marginBottom: 20 }}>
@@ -412,7 +412,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24, maxWidth: 900, margin: '0 auto' }}>
+          <div className="rg-pricing">
             {[
               {
                 name: 'Discover',

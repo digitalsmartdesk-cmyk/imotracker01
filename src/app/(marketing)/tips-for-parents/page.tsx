@@ -122,7 +122,7 @@ export default function TipsPage() {
             <p style={{ fontSize: 14.5, color: 'var(--navy-ink)', opacity: 0.75, lineHeight: 1.6, marginBottom: 20 }}>
               ImoTracker is a wellness tool, not a clinical assessment. Your instincts as a parent matter most. Consider speaking with your paediatrician, a school counsellor, or a child psychologist if you notice:
             </p>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+            <div className="rg-2col-sm">
               {[
                 'Persistent sadness or tearfulness lasting more than two weeks',
                 'Significant withdrawal from friends, family, or activities they used to enjoy',
@@ -146,7 +146,7 @@ export default function TipsPage() {
         <div className="container">
           <div className="section-label">Articles</div>
           <h2 className="section-title" style={{ marginBottom: 40 }}>Further reading</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+          <div className="rg-3up" style={{ marginBottom: 0 }}>
             {ARTICLES.map(a => (
               <div key={a.title} className="card" style={{ padding: 28, cursor: 'pointer' }}>
                 <div style={{ fontSize: 28, marginBottom: 16 }}>{a.emoji}</div>
@@ -164,7 +164,7 @@ export default function TipsPage() {
         <div className="container">
           <div className="section-label">Downloadable worksheets</div>
           <h2 className="section-title" style={{ marginBottom: 40 }}>Free resources for your family</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20 }}>
+          <div className="rg-4up">
             {WORKSHEETS.map(w => (
               <div key={w.title} className="card" style={{ padding: 24, display: 'flex', flexDirection: 'column', gap: 10 }}>
                 <div style={{ fontSize: 28 }}>{w.emoji}</div>

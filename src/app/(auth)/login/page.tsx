@@ -127,18 +127,9 @@ function LoginPageInner() {
   }
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+    <div className="login-layout" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
       {/* LEFT PANEL */}
-      <div style={{
-        width: '45%',
-        background: 'var(--navy)',
-        padding: '48px 52px',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        position: 'relative',
-        overflow: 'hidden',
-      }}>
+      <div className="login-left" style={{ position: 'relative', overflow: 'hidden' }}>
         {/* Subtle background circles */}
         <div style={{
           position: 'absolute', top: -80, right: -80,
@@ -207,15 +198,7 @@ function LoginPageInner() {
       </div>
 
       {/* RIGHT PANEL */}
-      <div style={{
-        flex: 1,
-        background: 'var(--cream)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '48px 40px',
-        overflowY: 'auto',
-      }}>
+      <div className="login-right">
         <div style={{ width: '100%', maxWidth: 460 }}>
           {/* Tab bar */}
           <div style={{
@@ -352,7 +335,7 @@ function LoginPageInner() {
                       autoComplete="email"
                     />
                   </div>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                  <div className="rg-2col-sm">
                     <div>
                       <label htmlFor="su-pass">Password</label>
                       <div style={{ position: 'relative' }}>
@@ -414,7 +397,7 @@ function LoginPageInner() {
                       onChange={e => setChildName(e.target.value)}
                     />
                   </div>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                  <div className="rg-2col-sm">
                     <div>
                       <label htmlFor="child-dob">Date of birth</label>
                       <input

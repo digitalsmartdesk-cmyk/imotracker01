@@ -83,7 +83,7 @@ export default async function DashboardPage() {
       </div>
 
       {/* Stats Row */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, marginBottom: 28 }}>
+      <div className="rg-stats">
         {[
           { label: 'Total assessments', value: '3', sub: 'completed so far' },
           { label: 'Last assessment', value: 'May 28', sub: '4 days ago' },
@@ -106,9 +106,9 @@ export default async function DashboardPage() {
       <div style={{
         background: 'linear-gradient(135deg, var(--teal) 0%, #1f4745 100%)',
         borderRadius: 20, padding: '28px 32px',
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         marginBottom: 28,
       }}>
+        <div className="nextup-inner">
         <div>
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(245,243,239,0.6)', marginBottom: 8 }}>
             Recommended next
@@ -120,20 +120,20 @@ export default async function DashboardPage() {
             Learn how Maya manages her emotional reactions. This 18-question check-in takes about 6 minutes and uses 1 credit.
           </p>
         </div>
-        <Link href="/tests/premium?topic=emotional-regulation">
-          <button style={{
-            background: 'var(--cream)', color: 'var(--teal)', fontWeight: 700,
-            fontSize: 14.5, padding: '12px 22px', borderRadius: 999,
-            border: 'none', cursor: 'pointer', whiteSpace: 'nowrap',
-            flexShrink: 0, marginLeft: 24,
-          }}>
-            Start this check-in →
-          </button>
-        </Link>
+          <Link href="/tests/premium?topic=emotional-regulation" className="nextup-btn">
+            <button style={{
+              background: 'var(--cream)', color: 'var(--teal)', fontWeight: 700,
+              fontSize: 14.5, padding: '12px 22px', borderRadius: 999,
+              border: 'none', cursor: 'pointer',
+            }}>
+              Start this check-in →
+            </button>
+          </Link>
+        </div>
       </div>
 
       {/* Two-column section */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 28 }}>
+      <div className="rg-dash2">
 
         {/* Recent Reports */}
         <div className="card" style={{ padding: '24px' }}>
@@ -178,7 +178,7 @@ export default async function DashboardPage() {
       {/* My Children */}
       <div>
         <h3 style={{ fontSize: 18, fontWeight: 800, color: 'var(--navy)', margin: '0 0 16px', letterSpacing: '-0.01em' }}>My Children</h3>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+        <div className="rg-children">
 
           {/* Maya */}
           <div className="card" style={{ padding: '22px' }}>

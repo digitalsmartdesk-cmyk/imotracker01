@@ -84,7 +84,7 @@ export default function SettingsPage() {
             <h2 style={{ fontSize: 22, fontWeight: 800, color: 'var(--navy)', marginBottom: 24 }}>Profile</h2>
             {saved && <div className="alert alert-success" style={{ marginBottom: 16 }}>Changes saved!</div>}
             <div className="card" style={{ padding: 32 }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
+              <div className="rg-2col-sm" style={{ marginBottom: 16 }}>
                 <div><label>Full name</label><input className="input" value={name} onChange={e => setName(e.target.value)} /></div>
                 <div><label>Email</label><input className="input" value={email} readOnly style={{ opacity: 0.6 }} /></div>
                 <div><label>Phone</label><input className="input" value={phone} onChange={e => setPhone(e.target.value)} placeholder="+91 98765 43210" /></div>
@@ -96,7 +96,7 @@ export default function SettingsPage() {
               </div>
               <div style={{ borderTop: '1px solid var(--line)', paddingTop: 16, marginTop: 8 }}>
                 <h3 style={{ fontSize: 15, fontWeight: 700, color: 'var(--navy)', marginBottom: 12 }}>Change password</h3>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                <div className="rg-2col-sm">
                   <div><label>New password</label><input className="input" type="password" placeholder="••••••••" /></div>
                   <div><label>Confirm new password</label><input className="input" type="password" placeholder="••••••••" /></div>
                 </div>

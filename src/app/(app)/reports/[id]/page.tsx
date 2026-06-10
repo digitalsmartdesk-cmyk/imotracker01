@@ -78,7 +78,7 @@ export default function ReportPage({ params }: { params: { id: string } }) {
             <p style={{ fontSize: 16, color: 'var(--navy)', opacity: 0.7 }}>Maya · Age 9 · Emotional Awareness</p>
           </div>
           <h3 style={{ fontSize: 18, fontWeight: 700, color: 'var(--navy)', marginBottom: 16, padding: '0 4px' }}>Your superpowers ✨</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 14, marginBottom: 24 }}>
+          <div className="rg-3up-sm" style={{ marginBottom: 24 }}>
             {[
               { emoji: '💚', title: 'You really care', body: 'You notice when others feel sad or left out, and you try to help. That\'s a real gift.' },
               { emoji: '🌟', title: 'You know your feelings', body: 'You\'re good at noticing how you feel — even when it\'s hard. That takes courage!' },
@@ -91,7 +91,7 @@ export default function ReportPage({ params }: { params: { id: string } }) {
               </div>
             ))}
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, marginBottom: 32 }}>
+          <div className="rg-2col-sm" style={{ marginBottom: 32 }}>
             {[
               { emoji: '🌱', title: 'Something growing', body: 'It can sometimes be hard to calm down quickly when upset. Lots of people find this tricky — it gets easier with practice!' },
               { emoji: '💡', title: 'A little idea to try', body: 'Next time you feel big feelings, try taking 3 slow breaths. See if that helps!' },
@@ -119,7 +119,7 @@ export default function ReportPage({ params }: { params: { id: string } }) {
       {view === 'parent' && (
         <>
           {/* Report header */}
-          <div style={{ background: 'var(--navy)', margin: '0 32px 24px', borderRadius: 20, padding: '36px 40px', color: 'var(--cream)', display: 'grid', gridTemplateColumns: '1fr auto', gap: 32, alignItems: 'center' }}>
+          <div style={{ background: 'var(--navy)', margin: '0 32px 24px', borderRadius: 20, padding: '36px 40px', color: 'var(--cream)', <div className="rg-report-hdr"> }}>
             <div>
               <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(245,243,239,0.5)', marginBottom: 10 }}>Parent Report</div>
               <h1 style={{ fontSize: 26, fontWeight: 800, marginBottom: 8, letterSpacing: '-0.01em' }}>Emotional Awareness</h1>
@@ -138,7 +138,7 @@ export default function ReportPage({ params }: { params: { id: string } }) {
           {/* Domain breakdown */}
           <div style={{ padding: '0 32px 24px' }}>
             <h2 style={{ fontSize: 16, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--navy)', opacity: 0.45, marginBottom: 16 }}>Domain Breakdown</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+            <div className="rg-2col-sm" style={{ marginBottom: 0 }}>
               {DOMAIN_SCORES.map(d => (
                 <div key={d.domain} className="card" style={{ padding: '18px 22px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
@@ -160,7 +160,7 @@ export default function ReportPage({ params }: { params: { id: string } }) {
           {/* Insights */}
           <div style={{ padding: '0 32px 24px' }}>
             <h2 style={{ fontSize: 16, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--navy)', opacity: 0.45, marginBottom: 16 }}>Insights & Patterns</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 14 }}>
+            <div className="rg-3up-sm">
               {[
                 { color: 'rgba(44,95,93,0.08)', border: 'rgba(44,95,93,0.2)', label: '✓ Strength', title: 'Strong empathetic awareness', body: 'Maya consistently demonstrates awareness of others\' emotional states and responds with care and concern.' },
                 { color: 'rgba(44,95,93,0.08)', border: 'rgba(44,95,93,0.2)', label: '✓ Strength', title: 'Good self-knowledge', body: 'She shows a clear ability to name and describe her own feelings, an important foundation for regulation.' },
@@ -192,7 +192,7 @@ export default function ReportPage({ params }: { params: { id: string } }) {
               ))}
             </div>
             <h3 style={{ fontSize: 14, fontWeight: 700, color: 'var(--navy)', marginBottom: 12, opacity: 0.7 }}>Activities</h3>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 24 }}>
+            <div className="rg-2col-sm" style={{ marginBottom: 24 }}>
               {[
                 '📓 Feelings journal — draw or write one feeling per day',
                 '🌹 Rose & thorn at dinner — everyone shares one good and one hard thing',

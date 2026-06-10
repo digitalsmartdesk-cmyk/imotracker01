@@ -54,7 +54,7 @@ export default function AboutPage() {
         <div className="container">
           <div className="section-label" style={{ textAlign: 'center' }}>What we believe</div>
           <h2 className="section-title" style={{ textAlign: 'center', marginBottom: 48 }}>Three ideas at our core</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+          <div className="rg-3up">
             {[
               { num: '01', title: 'Emotions need language', body: 'Children who can name their feelings are better equipped to manage them. Emotional literacy is a learnable skill — and it starts with vocabulary.' },
               { num: '02', title: 'Parents are the key', body: 'Therapists and teachers play a role, but parents are the constant. Our job is to give parents insight and language, not replace their judgment.' },
@@ -74,7 +74,7 @@ export default function AboutPage() {
       <section style={{ background: 'var(--cream-deep)', padding: '80px 0' }}>
         <div className="container">
           <h2 className="section-title" style={{ textAlign: 'center', marginBottom: 48 }}>Our approach</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32, maxWidth: 860, margin: '0 auto' }}>
+          <div className="rg-about-approach">
             <div className="card" style={{ borderColor: 'rgba(44,95,93,0.3)', padding: 32 }}>
               <h3 style={{ color: 'var(--teal)', marginBottom: 20, fontSize: 18, fontWeight: 700 }}>✓ What ImoTracker is</h3>
               {['A wellness and emotional literacy tool', 'Grounded in developmental psychology', 'Designed for longitudinal, annual tracking', 'Parent-empowering — not parent-replacing', 'Warm, non-judgmental, and age-appropriate'].map(i => (
@@ -100,7 +100,7 @@ export default function AboutPage() {
       {/* Stats */}
       <section style={{ background: 'var(--navy)', color: 'var(--cream)', padding: '64px 0' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 32, textAlign: 'center' }}>
+          <div className="rg-4up" style={{ textAlign: 'center' }}>
             {[
               { val: '10,000+', label: 'Families trust ImoTracker' },
               { val: '8', label: 'Developmental domains assessed' },
@@ -124,7 +124,7 @@ export default function AboutPage() {
           <p style={{ textAlign: 'center', fontSize: 16, color: 'var(--navy-ink)', opacity: 0.65, maxWidth: 560, margin: '0 auto 48px', lineHeight: 1.6 }}>
             Each assessment tracks these eight areas of emotional development, drawn from decades of child psychology research.
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20 }}>
+          <div className="rg-4up">
             {DOMAINS.map((d, i) => (
               <div key={d.name} className="card" style={{ padding: 20 }}>
                 <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'var(--teal)', color: 'var(--cream)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, fontWeight: 700, marginBottom: 12 }}>{i + 1}</div>
@@ -141,7 +141,7 @@ export default function AboutPage() {
         <div className="container">
           <div className="section-label" style={{ textAlign: 'center' }}>The team</div>
           <h2 className="section-title" style={{ textAlign: 'center', marginBottom: 48 }}>Built by people who care</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24 }}>
+          <div className="rg-4up">
             {TEAM.map(t => (
               <div key={t.name} className="card" style={{ padding: 24, textAlign: 'center' }}>
                 <div style={{ width: 56, height: 56, borderRadius: '50%', background: 'var(--teal)', color: 'var(--cream)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, fontWeight: 700, margin: '0 auto 16px' }}>
