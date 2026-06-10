@@ -149,13 +149,7 @@ export default function Nav() {
         </div>
       </div>
 
-      <style>{`
-        @media (max-width: 980px) {
-          .nav-links { display: none !important; }
-          .nav-ctas { display: none !important; }
-          .menu-btn { display: flex !important; }
-        }
-      `}</style>
+
     </>
   )
 }

@@ -121,7 +121,7 @@ export default function CheckoutPage() {
             {/* QR Payment */}
             <div className="card" style={{ padding: 28 }}>
               <h2 style={{ fontSize: 18, fontWeight: 700, color: 'var(--navy)', marginBottom: 20 }}>Scan & pay with UPI</h2>
-              <div style={{ display: 'flex', gap: 28, alignItems: 'flex-start' }}>
+              <div className="qr-row">
                 <div style={{ background: 'white', border: '1px solid var(--line)', borderRadius: 12, padding: 12, flexShrink: 0 }}>
                   <img src={selected.qr} alt={`QR code for ${selected.label}`} style={{ width: 160, height: 160, display: 'block' }}
                     onError={e => { (e.target as HTMLImageElement).style.display = 'none' }} />

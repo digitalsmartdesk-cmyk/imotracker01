@@ -60,9 +60,9 @@ export default function SettingsPage() {
   }
 
   return (
-    <div style={{ display: 'flex', minHeight: '100%', maxWidth: 1080, margin: '0 auto', padding: '36px 40px', gap: 32 }}>
+    <div className="settings-layout">
       {/* Left nav */}
-      <div style={{ width: 200, flexShrink: 0 }}>
+      <div className="settings-sidenav">
         <h1 style={{ fontSize: 20, fontWeight: 800, color: 'var(--navy)', marginBottom: 20, letterSpacing: '-0.01em' }}>Settings</h1>
         <nav style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           {NAV_SECTIONS.map(s => (
@@ -78,7 +78,7 @@ export default function SettingsPage() {
       </div>
 
       {/* Content */}
-      <div style={{ flex: 1 }}>
+      <div className="settings-content">
         {activeSection === 'profile' && (
           <div>
             <h2 style={{ fontSize: 22, fontWeight: 800, color: 'var(--navy)', marginBottom: 24 }}>Profile</h2>
